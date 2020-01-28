@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public bool gameOver = false;
     public bool isOnGround = true;
     private Animator playerAnim;
+    public ParticleSystem explosionParticle;
     void Start()
     {
         playerRB = GetComponent<Rigidbody>();
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour
             gameOver = true;
             playerAnim.SetBool("Death_b", true);
             playerAnim.SetInteger("DeathType_int", 1);
+            explosionParticle.Play();
             Debug.Log("Game Over!");
         }
     }
